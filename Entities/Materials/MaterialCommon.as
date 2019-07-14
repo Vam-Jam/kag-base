@@ -209,6 +209,7 @@ namespace Material
 
       createFor(this, name, harvestAmount);
     }
+  }
 
   // Server-side: Create material from a tile
   void fromTile(CBlob@ this, uint16 &in type, float &in damage)
