@@ -40,6 +40,18 @@ void onSetStatic(CBlob@ this, const bool isStatic)
 
 	this.getSprite().PlaySound("/build_ladder.ogg");
 	this.getSprite().SetZ(-40);
+
+	if(this.isInWater())
+	{
+		CRules@ rules = getRules();
+	
+		u16[] ids;
+		rules.get("water_ids",ids);
+
+		ids.push_back(this.getNetworkID());
+
+		rules.set("water_ids",ids);
+	}
 }
 
 f32 onHit(CBlob@ this, Vec2f worldPoint, Vec2f velocity, f32 damage, CBlob@ hitterBlob, u8 customData)

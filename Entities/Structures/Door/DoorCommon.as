@@ -20,3 +20,21 @@ bool canOpenDoor(CBlob@ this, CBlob@ blob)
 	}
 	return false;
 }
+
+/*
+void onSetStatic(CBlob@ this, const bool isStatic)
+{
+	if (!isStatic && this.getName() != "wooden_door") return;
+
+	if(this.isInWater())
+	{
+		CRules@ rules = getRules();
+	
+		u16[] ids;
+		rules.get("water_ids",ids);
+
+		ids.push_back(this.getNetworkID());
+
+		rules.set("water_ids",ids);
+	}
+}*/
