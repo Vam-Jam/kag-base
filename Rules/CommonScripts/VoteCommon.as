@@ -262,5 +262,6 @@ void CalculateVoteThresholds(VoteObject@ vote)
 
 bool isDuplicatePlayer(CPlayer@ player)
 {
-	return player.getUsername().find("~") > -1;
+	// return player.getUsername().find("~") > -1;
+	return false;
 }
