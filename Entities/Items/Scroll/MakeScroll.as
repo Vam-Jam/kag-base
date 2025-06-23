@@ -1,11 +1,17 @@
 #include "TechsCommon.as"
 #include "ScrollCommon.as"
+#include "WAR_Technology.as";
 
 // from def
 
 CBlob@ server_MakePredefinedScroll(Vec2f atpos, const string &in name)
 {
-	if (!getNet().isServer()) { return null; }
+	if (!isServer()) { return null; }
+	
+	if (!getRules().exists("all scrolls"))
+	{
+		SetupScrolls(getRules());
+	}
 
 	ScrollDef@ def = getScrollDef("all scrolls", name);
 	if (def !is null)
@@ -40,11 +46,26 @@ CBlob@ server_MakePredefinedScroll(Vec2f atpos, const string &in name)
 	return null;
 }
 
+CBlob@ server_MakeRandUsableScroll(Vec2f atpos)
+{
+	if (!isServer()) { return null; }
+
+	string[] randScrolls = {
+		"midas",
+		"drought",
+		"carnage"
+	};
+
+	server_MakePredefinedScroll(atpos, randScrolls[XORRandom(randScrolls.length)]);
+	
+	return null;
+}
+
 // script scroll
 
 CBlob@ server_MakeScriptScroll(Vec2f atpos, const string &in name, string[] scripts, const u8 iconFrame = 0)
 {
-	if (!getNet().isServer()) { return null; }
+	if (!isServer()) { return null; }
 
 	CBlob@ blob = server_CreateBlobNoInit("scroll");
 	if (blob !is null)

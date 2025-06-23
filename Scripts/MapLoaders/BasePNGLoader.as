@@ -6,6 +6,7 @@
 #include "LoaderColors.as";
 #include "LoaderUtilities.as";
 #include "CustomBlocks.as";
+#include "MakeScroll.as";
 
 enum WAROffset
 {
@@ -394,6 +395,12 @@ class PNGLoader
 			case map_colors::boulder:     autotile(offset); spawnBlob(map, "boulder", offset, -1, false, Vec2f(8.0f, -8.0f)); break;
 			case map_colors::satchel:     autotile(offset); spawnBlob(map, "satchel", offset); break;
 			case map_colors::keg:         autotile(offset); spawnBlob(map, "keg", offset); break;
+
+			// Scrolls
+			case map_colors::scroll_midas:   autotile(offset); server_MakePredefinedScroll(getSpawnPosition(map, offset), "Scroll of Midas"); break;
+			case map_colors::scroll_drought: autotile(offset); server_MakePredefinedScroll(getSpawnPosition(map, offset), "Scroll of Drought"); break;
+			case map_colors::scroll_gib:     autotile(offset); server_MakePredefinedScroll(getSpawnPosition(map, offset), "Scroll of Carnage"); break;
+			case map_colors::scroll_rand:    autotile(offset); server_MakeRandUsableScroll(getSpawnPosition(map, offset)); break;
 
 			// Materials
 			case map_colors::gold:        autotile(offset); spawnBlob(map, "mat_gold", offset); break;

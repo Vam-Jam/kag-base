@@ -233,6 +233,11 @@ namespace map_colors
 		satchel                = 0xFFAA6400, // ARGB(255, 170, 100,   0);
 		keg                    = 0xFFDC3C3C, // ARGB(255, 220,  60,  60);
 
+		scroll_midas           = 0xFFDC463C, // ARGB(255, 220,  70,  60);
+		scroll_drought         = 0xFFDC473C, // ARGB(255, 220,  71,  60);
+		scroll_gib             = 0xFFDC483C, // ARGB(255, 220,  72,  60);
+		scroll_rand            = 0xFFDC493C, // ARGB(255, 220,  73,  60);
+
 		// VEHICLES
 		mountedbow             = 0xFF38E8B8, // ARGB(255,  56, 232, 184);
 		catapult               = 0xFF67E5A5, // ARGB(255, 103, 229, 165);
